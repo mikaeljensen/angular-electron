@@ -1,7 +1,7 @@
-import { app, BrowserWindow, screen } from 'electron';
+import { app, BrowserWindow, screen, globalShortcut } from 'electron';
 import * as path from 'path';
 
-let win, serve;
+let win, serve, overlay;
 const args = process.argv.slice(1);
 serve = args.some(val => val === '--serve');
 
@@ -22,16 +22,10 @@ function createWindow() {
     width: size.width,
     height: size.height
   });
-
-  // and load the index.html of the app.
   win.loadURL('file://' + __dirname + '/index.html');
-
-  // Open the DevTools.
   if (serve) {
     win.webContents.openDevTools();
   }
-
-  // Emitted when the window is closed.
   win.on('closed', () => {
     // Dereference the window object, usually you would store window
     // in an array if your app supports multi windows, this is the time
@@ -40,12 +34,44 @@ function createWindow() {
   });
 }
 
+function spawnOverlay() {
+  const size = screen.getPrimaryDisplay().workAreaSize;
+  overlay = new BrowserWindow({
+    x: 0,
+    y: 0,
+    width: 800,
+    height: 600,
+    transparent: true,
+    frame: false
+  });
+  overlay.loadURL('file://' + __dirname + '/../overlay.html');
+  // overlay.loadURL('https://facebook.com');
+  overlay.on('closed', () => {
+    // Dereference the window object, usually you would store window
+    // in an array if your app supports multi windows, this is the time
+    // when you should delete the corresponding element.
+    overlay = null;
+  });
+}
+// and load the index.html of the app.
+
+
+// Open the DevTools.
+
+// Emitted when the window is closed.
+
 try {
 
   // This method will be called when Electron has finished
   // initialization and is ready to create browser windows.
   // Some APIs can only be used after this event occurs.
-  app.on('ready', createWindow);
+  app.on('ready', () => {
+    createWindow();
+    globalShortcut.register('Super+Y', () => {
+      overlay ? overlay.close() : spawnOverlay() ;
+      // Do stuff when Y and either Command/Control is pressed.
+    })
+  });
 
   // Quit when all windows are closed.
   app.on('window-all-closed', () => {
