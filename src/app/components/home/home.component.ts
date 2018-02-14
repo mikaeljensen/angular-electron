@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ElectronService } from '../../providers/electron.service';
 import { inspect } from 'util';
-import {MatButtonModule, MatCheckboxModule} from '@angular/material';
+// import {MatButtonModule, MatCheckboxModule} from '@angular/material';
 
 
 @Component({
