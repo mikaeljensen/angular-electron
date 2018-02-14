@@ -1,11 +1,9 @@
 [![Angular Logo](./logo-angular.jpg)](https://angular.io/) [![Electron Logo](./logo-electron.jpg)](https://electron.atom.io/)
 
-
 [![Travis Build Status][build-badge]][build]
 [![Dependencies Status][dependencyci-badge]][dependencyci]
 [![Make a pull request][prs-badge]][prs]
-[![Apache 2 License][license-badge]][license]
-[![Donate][donate-badge]][donate]
+[![License](http://img.shields.io/badge/Licence-MIT-brightgreen.svg)](LICENSE.md)
 
 [![Watch on GitHub][github-watch-badge]][github-watch]
 [![Star on GitHub][github-star-badge]][github-star]
@@ -13,14 +11,14 @@
 
 # Introduction
 
-Bootstrap and package your project with Angular 4(+) and Electron (Typescript + SASS + Hot Reload) for creating Desktop applications.
+Bootstrap and package your project with Angular 5(+) and Electron (Typescript + SASS + Hot Reload) for creating Desktop applications.
 
 Currently runs with:
 
-- Angular v4.3.5
-- Angular-CLI v1.4.1
-- Electron v1.7.6
-- Electron Packager v9.0.1
+- Angular v5.2.0
+- Angular-CLI v1.6.4
+- Electron v1.7.8
+- Electron Builder v19.45.4
 
 With this sample, you can :
 
@@ -72,7 +70,7 @@ Your built files are in the /dist folder.
 
 |Command|Description|
 |--|--|
-|`npm run start:web`| Execute the app in the brower |
+|`npm run start:web`| Execute the app in the browser |
 |`npm run electron:linux`| Builds your application and creates an app consumable on linux system |
 |`npm run electron:windows`| On a Windows OS, builds your application and creates an app consumable in windows 32/64 bit systems |
 |`npm run electron:mac`|  On a MAC OS, builds your application and generates a `.app` file of your application that can be run on Mac |
@@ -122,8 +120,6 @@ You can run tests with the command lines below :
 [license]: https://github.com/maximegris/angular-electron/blob/master/LICENSE.md
 [prs-badge]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square
 [prs]: http://makeapullrequest.com
-[donate-badge]: https://img.shields.io/badge/$-support-green.svg?style=flat-square
-[donate]: https://www.paypal.me/maximegris/10
 [github-watch-badge]: https://img.shields.io/github/watchers/maximegris/angular-electron.svg?style=social
 [github-watch]: https://github.com/maximegris/angular-electron/watchers
 [github-star-badge]: https://img.shields.io/github/stars/maximegris/angular-electron.svg?style=social
